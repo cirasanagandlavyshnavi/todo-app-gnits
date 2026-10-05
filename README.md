@@ -80,3 +80,4 @@ todo-app-gnits/
    - Environment variable: `MONGO_URI` = your Atlas URL
 3. In Atlas → Network Access, allow `0.0.0.0/0` so Render can connect.
 4. Once the deploy finishes, open your Render URL and test the app the same way you did locally.
+5. https://todo-app-gnits-vq3c.onrender.com/
