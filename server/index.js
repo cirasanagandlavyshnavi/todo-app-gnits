@@ -32,11 +32,15 @@ app.get("/{*splat}", (req, res) => {
 });
 
 const PORT = process.env.PORT || 5001;
+const mongoUri = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/todo-app";
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(mongoUri)
   .then(() => {
     console.log("Connected to MongoDB");
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   })
-  .catch((err) => console.error("MongoDB connection failed:", err.message));
+  .catch((err) => {
+    console.error("MongoDB connection failed:", err.message);
+    process.exit(1);
+  });
